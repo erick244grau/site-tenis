@@ -1,0 +1,155 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Fundo preto */
+    color: #e0e0e0; /* Texto cinza claro */
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1f1f1f; /* Fundo preto mais claro */
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f39c12; /* Destaque laranja */
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e0e0e0; /* Cinza claro */
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Laranja ao passar o mouse */
+    text-decoration: none; /* Remover sublinhado ao passar o mouse */
+}
+
+/* Suporte */
+.suporte {
+    padding: 70px 0; /* Aumentado para mais espaçamento */
+    text-align: center;
+    background-color: #1f1f1f; /* Fundo preto mais claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar a seção */
+}
+
+.suporte h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f39c12; /* Título laranja */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+#form-suporte {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #2b2b2b; /* Fundo preto para o formulário */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra mais intensa */
+}
+
+#form-suporte label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #e0e0e0; /* Texto em cinza claro */
+}
+
+#form-suporte input[type="text"],
+#form-suporte input[type="email"],
+#form-suporte textarea {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444; /* Borda cinza escuro */
+    border-radius: 5px;
+    background-color: #1f1f1f; /* Fundo preto para os campos */
+    color: #e0e0e0; /* Texto cinza claro */
+    font-size: 1rem;
+}
+
+#form-suporte textarea {
+    resize: vertical;
+}
+
+#form-suporte .enviar-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #f39c12; /* Laranja */
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+#form-suporte .enviar-btn:hover {
+    background-color: #e67e22; /* Laranja mais escuro ao passar o mouse */
+}
+
+/* Footer */
+.footer {
+    background-color: #1f1f1f; /* Fundo preto mais claro */
+    color: #b3b3b3; /* Texto em cinza */
+    text-align: center;
+    padding: 20px 0; /* Aumentado para mais espaçamento */
+    margin-top: auto;
+    border-top: 1px solid #333; /* Linha sutil no topo do footer */
+}
+
+.footer p {
+    margin: 5px 0;
+    color: #e0e0e0; /* Texto branco suave */
+}
+
+.footer a {
+    color: #f39c12; /* Links laranja */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff; /* Branco ao passar o mouse */
+}

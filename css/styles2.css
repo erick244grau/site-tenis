@@ -1,0 +1,115 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Fundo preto */
+    color: #e0e0e0; /* Cor do texto em cinza claro para contraste */
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1f1f1f; /* Fundo preto mais claro */
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 2rem; /* Aumentado para mais destaque */
+    font-weight: bold;
+    color: #f39c12; /* Destaque laranja para a logo */
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e0e0e0; /* Cinza claro */
+    font-size: 1.2rem;
+    transition: color 0.3s ease; /* Transição suave */
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Cor laranja ao passar o mouse */
+}
+
+/* Sobre */
+.sobre {
+    padding: 70px 0; /* Aumentado o padding para mais espaçamento */
+    text-align: center;
+    background-color: #1f1f1f; /* Fundo preto mais claro */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar a seção */
+}
+
+.sobre h2 {
+    font-size: 2.5rem; /* Aumentado para mais destaque */
+    margin-bottom: 20px;
+    color: #f39c12; /* Título com cor laranja */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+.sobre p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    text-align: justify;
+    line-height: 1.8; /* Aumentado o espaçamento entre linhas */
+    max-width: 900px; /* Limite de largura para melhor legibilidade */
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #1f1f1f; /* Fundo preto mais claro */
+    color: #b3b3b3; /* Texto em cinza */
+    text-align: center;
+    padding: 20px 0; /* Aumentado para mais espaçamento */
+    margin-top: auto;
+    border-top: 1px solid #333; /* Linha sutil no topo do footer */
+    font-size: 1rem; /* Tamanho da fonte ajustado */
+}
+
+.footer p {
+    margin: 5px 0;
+    color: #e0e0e0; /* Cor de texto branco suave */
+}
+
+.footer a {
+    color: #f39c12; /* Links com cor laranja */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff; /* Branco ao passar o mouse */
+}
