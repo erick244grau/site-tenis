@@ -15,6 +15,7 @@ body {
     flex-direction: column;
 }
 
+/* Container geral */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -64,11 +65,12 @@ body {
 
 /* Sobre */
 .sobre {
-    padding: 70px 0; /* Aumentado o padding para mais espaçamento */
+    padding: 70px 20px; /* Aumentado o padding para mais espaçamento */
     text-align: center;
     background-color: #1f1f1f; /* Fundo preto mais claro */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar a seção */
+    margin-top: 20px;
 }
 
 .sobre h2 {

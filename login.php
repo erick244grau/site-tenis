@@ -6,88 +6,97 @@
     <title>Login - Minha Loja</title>
     <link rel="stylesheet" href="styles3.css">
     <style>
+        /* Reset básico */
+        body, h2, p, form, label, input {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
 
-/* Reset básico */
-body, h2, p, form, label, input {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        header, footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
+        .suporte {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-footer {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    margin-top: 20px;
-}
+        form {
+            display: flex;
+            flex-direction: column;
+        }
 
-.suporte {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 600px;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
 
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
+        input[type="submit"] {
+            padding: 12px;
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+        input[type="submit"]:hover {
+            background: #4cae4c;
+        }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-}
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
 
-input[type="submit"] {
-    padding: 10px;
-    background: #5cb85c;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+        }
 
-input[type="submit"]:hover {
-    background: #4cae4c;
-}
-
- </style>
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
 </head>
 <body>
-<?php include_once 'includes/header.php'; ?>
+    <?php include_once 'includes/header.php'; ?>
 
     <section class="suporte">
         <?php
@@ -103,14 +112,14 @@ input[type="submit"]:hover {
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);
                     if (password_verify($senha, $row['senha'])) {
-                        echo "<p>Login realizado com sucesso!</p>";
+                        echo "<p class='message success'>Login realizado com sucesso!</p>";
                         // Redirecionar para a página inicial ou outra área após o login bem-sucedido
                         // header('Location: home.php');
                     } else {
-                        echo "<p>Senha incorreta!</p>";
+                        echo "<p class='message error'>Senha incorreta!</p>";
                     }
                 } else {
-                    echo "<p>Email não encontrado!</p>";
+                    echo "<p class='message error'>Email não encontrado!</p>";
                 }
             }
         ?>
@@ -118,18 +127,15 @@ input[type="submit"]:hover {
         <h2>Login</h2>
         <form action="login.php" method="post">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+            <input type="email" id="email" name="email" required>
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required><br>
+            <input type="password" id="senha" name="senha" required>
             <input type="submit" name="login" value="Login">
         </form>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
-        </div>
+        <p>&copy; 2024 Minha Loja. Todos os direitos reservados.</p>
     </footer>
-
 </body>
 </html>
