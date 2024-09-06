@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style1.css">
 </head>
 <body>
-    <?php include_once 'includes/header.php'; ?> 
+    <?php include_once 'includes/header.php'; ?>
 
     <main class="carrinho">
         <div class="container">
@@ -15,7 +15,7 @@
             <div id="carrinho-items">
                 <!-- Itens do carrinho serão adicionados dinamicamente aqui -->
             </div>
-            <button onclick="limparCarrinho()" class="limpar-carrinho">Limpar Carrinho</button>
+            <button onclick="limparCarrinho()" class="btn btn-danger">Limpar Carrinho</button>
         </div>
     </main>
 
@@ -46,14 +46,29 @@
                     itemDiv.innerHTML = `
                         <div class="product-info">
                             <h3>${item.nome}</h3>
-                            <p class="price">Preço: ${item.preco}</p>
+                            <p class="price">Preço: R$ ${item.preco.toFixed(2)}</p>
                             <p>Marca: ${item.marca}</p>
+                            <p>Tamanho: ${item.tamanho}</p>
                         </div>
-                        <button onclick="removerDoCarrinho('${item.nome}')" class="remover-item">Remover</button>
+                        <button onclick="removerDoCarrinho('${item.nome}', '${item.tamanho}')" class="btn btn-danger">Remover</button>
                     `;
                     carrinhoItemsDiv.appendChild(itemDiv);
                 });
             }
+        }
+
+        // Função para remover um item específico do carrinho
+        function removerDoCarrinho(nomeProduto, tamanho) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho = carrinho.filter(item => item.nome !== nomeProduto || item.tamanho !== tamanho);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            inicializarCarrinhoPage();
+        }
+
+        // Função para limpar todos os itens do carrinho
+        function limparCarrinho() {
+            localStorage.removeItem('carrinho');
+            inicializarCarrinhoPage();
         }
 
         // Event listener para aguardar o carregamento completo da página

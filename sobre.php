@@ -1,3 +1,6 @@
+<?php
+session_start(); // Inicia a sessão
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,27 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Minha Loja</title>
     <link rel="stylesheet" href="styles2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Reset básico */
-        body, h2, p {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-            padding: 20px;
+            color: #e0e0e0;
+            background-color: #121212;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header, footer {
-            background: #333;
+            background: #1f1f1f;
             color: #fff;
-            padding: 15px 0;
+            padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .container {
@@ -35,28 +44,62 @@
         }
 
         .sobre {
-            background: #fff;
+            background: #1e1e1e;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             margin-top: 20px;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        .sobre:hover {
+            transform: scale(1.02);
+            background: #2a2a2a;
         }
 
         h2 {
-            color: #333;
+            color: #f39c12;
             margin-bottom: 20px;
-            font-size: 2em;
-            font-weight: bold;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-align: center;
         }
 
         p {
             margin-bottom: 20px;
             font-size: 1.1em;
             line-height: 1.8;
+            color: #c1c1c1;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         footer {
-            margin-top: 20px;
+            margin-top: auto;
+            font-size: 0.9em;
+            color: #aaa;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .sobre {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>

@@ -1,3 +1,7 @@
+
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -6,6 +10,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Loja</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Reset básico */
+        body, h1, h2, h3, p, button, img {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: #fff;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .produtos, .novos-tenis {
+            margin-bottom: 40px;
+        }
+
+        .titulo-secao {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .produtos-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .produto {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .produto img {
+            width: 100%;
+            height: auto;
+        }
+
+        .descricao {
+            padding: 15px;
+        }
+
+        .descricao h3 {
+            margin-bottom: 10px;
+        }
+
+        .descricao p {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #4cae4c;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+        }
+
+        .fechar-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .produtos-lista {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .produto {
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -33,7 +212,7 @@
                             <h3>BB Forum Low</h3>
                             <p class="marca">Marca: Adidas</p>
                             <p class="preco">R$ 149,00</p>
-                            <button onclick="mostrarTamanhos('badbunny forum low', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 149.00)" class="btn btn-primary">Ver Tamanhos</button>
+                            <a href="#" onclick="mostrarTamanhos('badbunny forum low', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 149.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
 
@@ -44,37 +223,7 @@
                             <h3>Adi2000 All Black</h3>
                             <p class="marca">Marca: Adidas</p>
                             <p class="preco">R$ 299,00</p>
-                            <button onclick="mostrarTamanhos('Adi2000', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn btn-primary">Ver Tamanhos</button>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mais Vendidos -->
-        <section class="mais-vendidos">
-            <div class="container">
-                <h2 class="titulo-secao">Mais Vendidos</h2>
-                <div class="produtos-lista">
-                    <!-- Produto 1 Mais Vendido -->
-                    <article class="produto">
-                        <img src="img/mais-vendido1.avif" alt="Produto Mais Vendido 1">
-                        <div class="descricao">
-                            <h3>Produto Mais Vendido 1</h3>
-                            <p class="marca">Marca: Exemplo</p>
-                            <p class="preco">R$ 199,00</p>
-                            <button onclick="mostrarDetalhes('Produto Mais Vendido 1', 'Exemplo', 'R$ 199,00', 'Descrição do Produto Mais Vendido 1', 'img/mais-vendido1.avif')" class="btn btn-primary">Ver Detalhes</button>
-                        </div>
-                    </article>
-
-                    <!-- Produto 2 Mais Vendido -->
-                    <article class="produto">
-                        <img src="img/mais-vendido2.avif" alt="Produto Mais Vendido 2">
-                        <div class="descricao">
-                            <h3>Produto Mais Vendido 2</h3>
-                            <p class="marca">Marca: Exemplo</p>
-                            <p class="preco">R$ 299,00</p>
-                            <button onclick="mostrarDetalhes('Produto Mais Vendido 2', 'Exemplo', 'R$ 299,00', 'Descrição do Produto Mais Vendido 2', 'img/mais-vendido2.avif')" class="btn btn-primary">Ver Detalhes</button>
+                            <a href="#" onclick="mostrarTamanhos('Adi2000', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
                 </div>
@@ -93,7 +242,7 @@
                             <h3>Tênis Novo Modelo 1</h3>
                             <p class="marca">Marca: Exemplo</p>
                             <p class="preco">R$ 199,00</p>
-                            <button onclick="mostrarDetalhes('Tênis Novo Modelo 1', 'Exemplo', 'R$ 199,00', 'Descrição do tênis Novo Modelo 1', 'img/novo-tenis1.avif')" class="btn btn-primary">Ver Detalhes</button>
+                            <a href="#" onclick="mostrarDetalhes('Tênis Novo Modelo 1', 'Exemplo', 'R$ 199,00', 'Descrição do tênis Novo Modelo 1', 'img/novo-tenis1.avif')" class="btn">Ver Detalhes</a>
                         </div>
                     </article>
 
@@ -104,7 +253,7 @@
                             <h3>Tênis Novo Modelo 2</h3>
                             <p class="marca">Marca: Exemplo</p>
                             <p class="preco">R$ 249,00</p>
-                            <button onclick="mostrarDetalhes('Tênis Novo Modelo 2', 'Exemplo', 'R$ 249,00', 'Descrição do tênis Novo Modelo 2', 'img/novo-tenis2.avif')" class="btn btn-primary">Ver Detalhes</button>
+                            <a href="#" onclick="mostrarDetalhes('Tênis Novo Modelo 2', 'Exemplo', 'R$ 249,00', 'Descrição do tênis Novo Modelo 2', 'img/novo-tenis2.avif')" class="btn">Ver Detalhes</a>
                         </div>
                     </article>
                 </div>
@@ -123,7 +272,7 @@
                             <h3>Japanese Roots</h3>
                             <p class="marca">Marca: Nike</p>
                             <p class="preco">R$ 179,00</p>
-                            <button onclick="mostrarTamanhos('Japanese Roots', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 179.00)" class="btn btn-primary">Ver Tamanhos</button>
+                            <a href="#" onclick="mostrarTamanhos('Japanese Roots', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 179.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
 
@@ -134,7 +283,7 @@
                             <h3>Michigan State</h3>
                             <p class="marca">Marca: Nike</p>
                             <p class="preco">R$ 349,00</p>
-                            <button onclick="mostrarTamanhos('Michigan State', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 349.00)" class="btn btn-primary">Ver Tamanhos</button>
+                            <a href="#" onclick="mostrarTamanhos('Michigan State', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 349.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
                 </div>
@@ -163,7 +312,7 @@
                     <p class="preco" id="produto-preco"></p>
                     <p class="descricao" id="produto-descricao"></p>
                     <div id="tamanhos-container" class="tamanhos-container"></div>
-                    <button onclick="adicionarAoCarrinho()" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    <button onclick="adicionarAoCarrinho()" class="btn">Adicionar ao Carrinho</button>
                 </div>
             </div>
         </div>

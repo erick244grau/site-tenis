@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+/* Corpo */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212; /* Fundo preto */
@@ -26,14 +27,21 @@ body {
 .navbar {
     background-color: #1f1f1f; /* Fundo preto mais claro */
     color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.navbar.scrolled {
+    background-color: #333; /* Cor quando rola para baixo */
 }
 
 .navbar .logo {
@@ -46,21 +54,25 @@ body {
 .nav-links {
     list-style-type: none;
     display: flex;
+    gap: 20px; /* Espaçamento uniforme entre os itens */
 }
 
 .nav-links li {
-    margin-right: 20px;
+    position: relative;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #e0e0e0; /* Cinza claro */
     font-size: 1.2rem;
-    transition: color 0.3s ease; /* Transição suave */
+    padding: 10px;
+    border-radius: 5px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transição suave */
 }
 
 .nav-links a:hover {
-    color: #f39c12; /* Cor laranja ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: #f39c12; /* Fundo laranja ao passar o mouse */
 }
 
 /* Sobre */
@@ -68,8 +80,8 @@ body {
     padding: 70px 20px; /* Aumentado o padding para mais espaçamento */
     text-align: center;
     background-color: #1f1f1f; /* Fundo preto mais claro */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar a seção */
+    border-radius: 12px; /* Bordas arredondadas */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
     margin-top: 20px;
 }
 
@@ -95,7 +107,7 @@ body {
     background-color: #1f1f1f; /* Fundo preto mais claro */
     color: #b3b3b3; /* Texto em cinza */
     text-align: center;
-    padding: 20px 0; /* Aumentado para mais espaçamento */
+    padding: 20px 20px; /* Aumentado para mais espaçamento */
     margin-top: auto;
     border-top: 1px solid #333; /* Linha sutil no topo do footer */
     font-size: 1rem; /* Tamanho da fonte ajustado */
@@ -114,4 +126,37 @@ body {
 
 .footer a:hover {
     color: #fff; /* Branco ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #1f1f1f;
+        padding: 20px;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .menu-toggle .bar {
+        background-color: #fff;
+        height: 3px;
+        width: 25px;
+        margin: 4px 0;
+        transition: 0.3s;
+    }
 }

@@ -1,15 +1,21 @@
 <?php
-    $serverName = "localhost";
-    $userName = "root";
-    $passWord = "";
-    $db_name = "site_tenis";
+// Configurações do banco de dados
+$serverName = "localhost";
+$userName = "root";
+$passWord = "";
+$db_name = "site_tenis";
 
-    $connect = mysqli_connect($serverName, $userName, $passWord, $db_name);
-    mysqli_set_charset($connect, "utf8");
+// Conectar ao banco de dados
+$connect = new mysqli($serverName, $userName, $passWord, $db_name);
 
+// Verificar se houve erro na conexão
+if ($connect->connect_error) {
+    die("Erro de conexão: " . $connect->connect_error);
+}
 
-    if (mysqli_connect_error()) :
-    
-        echo"Erro de conexao: " . mysqli_connect_error();
-    endif;
+// Definir o charset para UTF-8
+$connect->set_charset("utf8");
+
+// Mensagem de sucesso opcional para depuração (remova em produção)
+// echo "Conexão bem-sucedida!";
 ?>
