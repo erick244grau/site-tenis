@@ -1,7 +1,7 @@
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     color: #333;
@@ -20,13 +20,14 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carrinho h2 {
-    margin-top: 0;
+    margin: 0 0 20px;
     font-size: 1.8em;
     color: #333;
+    font-weight: 500;
 }
 
 /* Itens do carrinho */
@@ -34,8 +35,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .product-info {
@@ -46,15 +47,17 @@ body {
     margin: 0;
     font-size: 1.2em;
     color: #555;
+    font-weight: 400;
 }
 
 .product-info p {
     margin: 5px 0;
+    font-size: 1em;
 }
 
 .price {
     color: #e74c3c;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* Botão */
@@ -66,35 +69,38 @@ body {
     cursor: pointer;
     font-size: 1em;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary {
-    background-color: #3498db;
+    background-color: #007bff;
     color: #fff;
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .btn-danger {
-    background-color: #e74c3c;
+    background-color: #dc3545;
     color: #fff;
 }
 
 .btn-danger:hover {
-    background-color: #c0392b;
+    background-color: #c82333;
+    transform: scale(1.05);
 }
 
 /* Footer */
 .footer {
-    background-color: #333;
+    background-color: #343a40;
     color: #fff;
     text-align: center;
     padding: 20px;
     margin-top: 20px;
-    border-top: 1px solid #444;
+    border-top: 1px solid #495057;
+    font-size: 0.9em;
 }
 
 /* Responsividade */
@@ -107,10 +113,12 @@ body {
     .carrinho-item {
         flex-direction: column;
         align-items: flex-start;
+        padding: 10px 0;
     }
 
     .btn {
         width: 100%;
         text-align: center;
+        padding: 12px;
     }
 }

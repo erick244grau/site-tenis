@@ -31,120 +31,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Minha Loja</title>
-    <link rel="stylesheet" href="css/styles3.css">
-    <style>
-        /* Reset básico */
-        body, h2, p, form, label, input {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background: #333;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-        }
-
-        .login-container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 400px;
-            margin: 40px auto;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            text-align: center;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            padding: 12px;
-            background: #5cb85c;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background: #4cae4c;
-        }
-
-        .message {
-            margin-bottom: 20px;
-            padding: 10px;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 1em;
-        }
-
-        .message.success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-
-        .message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-    </style>
+    <link rel="stylesheet" href="suporte.css">
+    
 </head>
 <body>
 <?php include_once 'includes/header.php'; ?> 
 
     <section class="login-container">
         <h2>Login</h2>
-        <form action="login.php" method="post">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-            <input type="submit" name="login" value="Login">
-        </form>
+
+        <form action="login.php" method="post" id="form-suporte" class="form-login"> 
+                <input style="width: 50%;" class="btn-login" type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                
+                <input style="width: 50%; margin-left:25%" type="password" id="senha" name="senha"  placeholder="Senha"  required>                
+                <button style="width: 50%; margin-left:25%" type="submit" class="enviar-btn">Login</button>
+            </form>
     </section>
 
     <footer class="footer">

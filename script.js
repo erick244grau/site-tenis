@@ -1,40 +1,38 @@
 // Função para adicionar um produto ao carrinho com tamanho e preço
 function adicionarAoCarrinho(nomeProduto, tamanho, preco) {
-    const produto = {
-        nome: nomeProduto,
-        tamanho: tamanho,
-        preco: preco
-    };
+    const produto = { nome: nomeProduto, tamanho, preco };
 
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho.push(produto);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    alert(`${nomeProduto} (${tamanho}) foi adicionado ao carrinho! Preço: R$ ${preco.toFixed(2)}`);
-    exibirCarrinho();
+    try {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        carrinho.push(produto);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        alert(`${nomeProduto} (${tamanho}) foi adicionado ao carrinho! Preço: R$ ${preco.toFixed(2)}`);
+        exibirCarrinho();
+    } catch (error) {
+        console.error('Erro ao adicionar produto ao carrinho:', error);
+    }
 }
 
 // Função para exibir os itens do carrinho na página de carrinho.html
 function exibirCarrinho() {
     const carrinhoItemsDiv = document.getElementById('carrinho-items');
-    carrinhoItemsDiv.innerHTML = '';
-    
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    if (carrinho.length === 0) {
-        carrinhoItemsDiv.innerHTML = '<p>Seu carrinho está vazio.</p>';
-    } else {
-        carrinho.forEach(item => {
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('carrinho-item');
-            itemDiv.innerHTML = `
-                <div class="info">
-                    <p>${item.nome} (${item.tamanho})</p>
-                    <p class="price">Preço: R$ ${item.preco.toFixed(2)}</p>
+    if (!carrinhoItemsDiv) return;
+
+    try {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        carrinhoItemsDiv.innerHTML = carrinho.length === 0
+            ? '<p>Seu carrinho está vazio.</p>'
+            : carrinho.map(item => `
+                <div class="carrinho-item">
+                    <div class="info">
+                        <p>${item.nome} (${item.tamanho})</p>
+                        <p class="price">Preço: R$ ${item.preco.toFixed(2)}</p>
+                    </div>
+                    <button onclick="removerDoCarrinho('${item.nome}', '${item.tamanho}')">Remover</button>
                 </div>
-                <button onclick="removerDoCarrinho('${item.nome}', '${item.tamanho}')">Remover</button>
-            `;
-            carrinhoItemsDiv.appendChild(itemDiv);
-        });
+            `).join('');
+    } catch (error) {
+        console.error('Erro ao exibir carrinho:', error);
     }
 }
 
@@ -44,7 +42,7 @@ function inicializarCarrinhoPage() {
 }
 
 // Event listener para aguardar o carregamento completo da página
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('carrinho.html')) {
         inicializarCarrinhoPage();
     }
@@ -56,31 +54,35 @@ function mostrarTamanhos(nomeProduto, tamanhos, preco) {
     const modalTitle = document.getElementById('modal-title');
     const tamanhosContainer = document.getElementById('tamanhos-container');
 
-    modal.style.display = 'flex';
-    modalTitle.textContent = `Tamanhos disponíveis para ${nomeProduto}`;
-    tamanhosContainer.innerHTML = '';
-
-    tamanhos.forEach(tamanho => {
-        const btnTamanho = document.createElement('button');
-        btnTamanho.textContent = tamanho;
-        btnTamanho.classList.add('btn-tamanho');
-        btnTamanho.onclick = () => adicionarAoCarrinho(nomeProduto, tamanho, preco);
-        tamanhosContainer.appendChild(btnTamanho);
-    });
+    if (modal && modalTitle && tamanhosContainer) {
+        modal.style.display = 'flex';
+        modalTitle.textContent = `Tamanhos disponíveis para ${nomeProduto}`;
+        tamanhosContainer.innerHTML = tamanhos.map(tamanho => `
+            <button class="btn-tamanho" onclick="adicionarAoCarrinho('${nomeProduto}', '${tamanho}', ${preco})">
+                ${tamanho}
+            </button>
+        `).join('');
+    } else {
+        console.error('Elementos do modal não encontrados.');
+    }
 }
 
 // Função para fechar o modal
 function fecharModal() {
     const modal = document.getElementById('modal');
-    modal.style.display = 'none';
+    if (modal) modal.style.display = 'none';
 }
 
 // Função para remover um item específico do carrinho
 function removerDoCarrinho(nomeProduto, tamanho) {
-    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho = carrinho.filter(item => item.nome !== nomeProduto || item.tamanho !== tamanho);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-    exibirCarrinho();
+    try {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const carrinhoAtualizado = carrinho.filter(item => item.nome !== nomeProduto || item.tamanho !== tamanho);
+        localStorage.setItem('carrinho', JSON.stringify(carrinhoAtualizado));
+        exibirCarrinho();
+    } catch (error) {
+        console.error('Erro ao remover produto do carrinho:', error);
+    }
 }
 
 // Função para limpar todos os itens do carrinho
@@ -91,27 +93,38 @@ function limparCarrinho() {
 
 // Função para mostrar os detalhes do produto em um modal
 function mostrarDetalhes(nome, marca, preco, descricao, imagem) {
-    document.getElementById('produto-nome').innerText = nome;
-    document.getElementById('produto-marca').innerText = 'Marca: ' + marca;
-    document.getElementById('produto-preco').innerText = 'Preço: ' + preco;
-    document.getElementById('produto-descricao').innerText = descricao;
-    document.getElementById('produto-imagem').src = imagem;
-
-    document.getElementById('modal-produto').style.display = 'block';
+    const modalProduto = document.getElementById('modal-produto');
+    if (modalProduto) {
+        document.getElementById('produto-nome').innerText = nome;
+        document.getElementById('produto-marca').innerText = 'Marca: ' + marca;
+        document.getElementById('produto-preco').innerText = 'Preço: R$ ' + preco.toFixed(2);
+        document.getElementById('produto-descricao').innerText = descricao;
+        document.getElementById('produto-imagem').src = imagem;
+        modalProduto.style.display = 'block';
+    } else {
+        console.error('Modal de detalhes não encontrado.');
+    }
 }
 
 // Função para fechar o modal do produto
 function fecharModalProduto() {
-    document.getElementById('modal-produto').style.display = 'none';
+    const modalProduto = document.getElementById('modal-produto');
+    if (modalProduto) modalProduto.style.display = 'none';
 }
 
 // Função para fechar o modal ao clicar fora dele
-document.addEventListener('click', function(event) {
+document.addEventListener('click', (event) => {
     const modal = document.getElementById('modal');
     const modalProduto = document.getElementById('modal-produto');
     
-    if (event.target === modal || event.target === modalProduto) {
-        fecharModal();
-        fecharModalProduto();
-    }
+    if (event.target === modal) fecharModal();
+    if (event.target === modalProduto) fecharModalProduto();
 });
+
+// Função para alterar o estilo da barra de navegação ao rolar a página
+window.onscroll = () => {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.classList.toggle('scrolled', window.pageYOffset > 50);
+    }
+};

@@ -5,11 +5,12 @@ include 'includes/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     // Obtém e valida a entrada do usuário
-    $email = trim($_POST['email']);
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $senha = trim($_POST['senha']);
 
+    // Verifica se os campos estão preenchidos
     if (empty($email) || empty($senha)) {
-        echo "<p class='message error'>Por favor, preencha todos os campos!</p>";
+        $message = "Por favor, preencha todos os campos!";
     } else {
         // Prepara a consulta para evitar SQL Injection
         $sql = "SELECT senha FROM usuarios WHERE email = ?";
@@ -30,11 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                 header('Location: index.php');
                 exit();
             } else {
-                echo "<p class='message error'>Senha incorreta!</p>";
+                $message = "Senha incorreta!";
             }
         } else {
-            echo "<p class='message error'>Erro na consulta ao banco de dados!</p>";
+            $message = "Erro na consulta ao banco de dados!";
         }
+    }
+
+    // Exibe a mensagem de erro, se houver
+    if (isset($message)) {
+        echo "<p class='message error'>$message</p>";
     }
 }
 

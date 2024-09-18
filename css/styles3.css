@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+/* Corpo */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212; /* Fundo preto */
@@ -26,8 +27,8 @@ body {
 .navbar {
     background-color: #1f1f1f; /* Fundo preto mais claro */
     color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px; /* Ajustado para compactar a navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
 }
 
 .navbar .container {
@@ -37,61 +38,63 @@ body {
 }
 
 .navbar .logo {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1.8rem; /* Levemente reduzido para um visual mais equilibrado */
+    font-weight: 700; /* Negrito */
     color: #f39c12; /* Destaque laranja */
     text-decoration: none;
+    letter-spacing: 1px; /* Espaçamento entre letras */
 }
 
 .nav-links {
     list-style-type: none;
     display: flex;
+    gap: 20px; /* Espaçamento uniforme entre os itens */
 }
 
 .nav-links li {
-    margin-right: 20px;
+    position: relative;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #e0e0e0; /* Cinza claro */
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Reduzido para consistência */
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #f39c12; /* Laranja ao passar o mouse */
-    text-decoration: none; /* Remover sublinhado ao passar o mouse */
 }
 
 /* Suporte */
 .suporte {
-    padding: 70px 20px; /* Ajustado para melhor responsividade */
+    padding: 60px 20px; /* Ajustado para melhor responsividade */
     text-align: center;
     background-color: #1f1f1f; /* Fundo preto mais claro */
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar a seção */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ajustada */
 }
 
 .suporte h2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem; /* Ajustado para um tamanho mais equilibrado */
     margin-bottom: 20px;
     color: #f39c12; /* Título laranja */
     text-transform: uppercase; /* Texto em maiúsculas */
+    font-weight: 700; /* Negrito */
 }
 
 #form-suporte {
-    max-width: 600px;
+    max-width: 500px; /* Ajustado para melhor responsividade */
     margin: 0 auto;
     background-color: #2b2b2b; /* Fundo preto para o formulário */
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra mais intensa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
 }
 
 #form-suporte label {
     display: block;
-    font-weight: bold;
+    font-weight: 600; /* Ajustado para um visual mais limpo */
     margin-bottom: 10px;
     color: #e0e0e0; /* Texto em cinza claro */
 }
@@ -130,7 +133,7 @@ body {
     color: #fff;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Ajustado para um visual mais consistente */
     transition: background-color 0.3s ease;
 }
 
@@ -143,9 +146,10 @@ body {
     background-color: #1f1f1f; /* Fundo preto mais claro */
     color: #b3b3b3; /* Texto em cinza */
     text-align: center;
-    padding: 20px 0; /* Aumentado para mais espaçamento */
+    padding: 20px;
     margin-top: auto;
     border-top: 1px solid #333; /* Linha sutil no topo do footer */
+    font-size: 1rem; /* Tamanho da fonte ajustado */
 }
 
 .footer p {
@@ -167,6 +171,7 @@ body {
 @media (max-width: 768px) {
     .navbar .container {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-links {

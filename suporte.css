@@ -1,0 +1,146 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuração geral */
+html, body {
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #181818;
+    color: #e0e0e0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Seção Suporte */
+.suporte {
+    flex: 1;
+    padding: 50px 20px;
+    background-color: #222;
+}
+
+.suporte .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.suporte h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#form-suporte {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea, .btn-login {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+}
+
+
+
+
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+textarea::placeholder {
+    color: #aaa;
+}
+
+button.enviar-btn {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-login{
+    width: 50%;
+    margin-left: 25%;
+}
+
+button.enviar-btn:hover {
+    background-color: #e0b700;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .suporte h2 {
+        font-size: 2rem;
+    }
+
+    button.enviar-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+.form-login{
+    margin-top: 10%;
+}

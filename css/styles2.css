@@ -5,158 +5,158 @@
     box-sizing: border-box;
 }
 
-/* Corpo */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* Fundo preto */
-    color: #e0e0e0; /* Cor do texto em cinza claro para contraste */
+html, body {
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #181818;
+    color: #e0e0e0;
     line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Container geral */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Impede o overflow horizontal */
 }
 
 /* Navbar */
 .navbar {
-    background-color: #1f1f1f; /* Fundo preto mais claro */
+    background-color: #222;
     color: #fff;
-    padding: 15px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-    position: fixed;
-    width: 100%;
+    padding: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    position: sticky;
     top: 0;
-    left: 0;
     z-index: 1000;
+    width: 100%;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/wpp.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 120px 20px;
+    text-align: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+    min-height: 80vh; /* Ajusta a altura mínima */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+    justify-content: center;
 }
 
-.navbar.scrolled {
-    background-color: #333; /* Cor quando rola para baixo */
-}
-
-.navbar .logo {
-    font-size: 2rem; /* Aumentado para mais destaque */
-    font-weight: bold;
-    color: #f39c12; /* Destaque laranja para a logo */
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style-type: none;
-    display: flex;
-    gap: 20px; /* Espaçamento uniforme entre os itens */
-}
-
-.nav-links li {
-    position: relative;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #e0e0e0; /* Cinza claro */
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 5px;
-    transition: color 0.3s ease, background-color 0.3s ease; /* Transição suave */
-}
-
-.nav-links a:hover {
-    color: #fff; /* Cor do texto ao passar o mouse */
-    background-color: #f39c12; /* Fundo laranja ao passar o mouse */
-}
-
-/* Sobre */
-.sobre {
-    padding: 70px 20px; /* Aumentado o padding para mais espaçamento */
-    text-align: center;
-    background-color: #1f1f1f; /* Fundo preto mais claro */
-    border-radius: 12px; /* Bordas arredondadas */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
-    margin-top: 20px;
-}
-
-.sobre h2 {
-    font-size: 2.5rem; /* Aumentado para mais destaque */
-    margin-bottom: 20px;
-    color: #f39c12; /* Título com cor laranja */
-    text-transform: uppercase; /* Texto em maiúsculas */
-}
-
-.sobre p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #e0e0e0;
-    text-align: justify;
-    line-height: 1.8; /* Aumentado o espaçamento entre linhas */
-    max-width: 900px; /* Limite de largura para melhor legibilidade */
+.hero-content {
+    max-width: 700px;
     margin: 0 auto;
 }
 
-/* Footer */
-.footer {
-    background-color: #1f1f1f; /* Fundo preto mais claro */
-    color: #b3b3b3; /* Texto em cinza */
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    margin-bottom: 30px;
+}
+
+/* Produtos e seções */
+.produtos, .novos-tenis {
+    background-color: #222;
+    padding: 40px 0;
+}
+
+.produtos .container, .novos-tenis .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-secao {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
     text-align: center;
-    padding: 20px 20px; /* Aumentado para mais espaçamento */
-    margin-top: auto;
-    border-top: 1px solid #333; /* Linha sutil no topo do footer */
-    font-size: 1rem; /* Tamanho da fonte ajustado */
 }
 
-.footer p {
-    margin: 5px 0;
-    color: #e0e0e0; /* Cor de texto branco suave */
+.produtos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.footer a {
-    color: #f39c12; /* Links com cor laranja */
+.produto {
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+}
+
+.produto img {
+    width: 100%;
+    height: auto;
+}
+
+.descricao {
+    padding: 20px;
+    text-align: center;
+}
+
+.descricao h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.descricao .marca {
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.descricao .preco {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #000;
     text-decoration: none;
-    transition: color 0.3s ease;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.footer a:hover {
-    color: #fff; /* Branco ao passar o mouse */
+.btn:hover {
+    background-color: #e0b700;
+}
+
+.produto:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .navbar .container {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .produtos-lista {
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #1f1f1f;
-        padding: 20px;
-        gap: 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-    
-    .menu-toggle .bar {
-        background-color: #fff;
-        height: 3px;
-        width: 25px;
-        margin: 4px 0;
-        transition: 0.3s;
+        align-items: center;
     }
 }
