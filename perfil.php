@@ -8,7 +8,7 @@ session_start(); // Inicia a sessão
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - Minha Loja</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">  
+    <link rel="stylesheet" href="suporte.css">
 </head>
 <body>
     <?php include_once 'includes/header.php'; ?>
@@ -101,13 +101,13 @@ session_start(); // Inicia a sessão
                 <label for="senha">Nova Senha (deixe em branco para não alterar):</label>
                 <input type="password" id="senha" name="senha">
                 
-                <input type="submit" name="update" value="Atualizar Perfil">
+                <button type="submit" name="update" class="enviar-btn" value="Atualizar Perfil">Atualizar Perfil</button>
             </form>
 
             <div class="delete-account">
                 <p>Se você deseja excluir sua conta, clique no botão abaixo. Esta ação é irreversível.</p>
                 <form action="" method="post">
-                    <button type="submit" name="delete">Excluir Conta</button>
+                    <button type="submit" name="delete" class="enviar-btn" style="background-color:#ff5c33">Excluir Conta</button>
                 </form>
             </div>
         </div>

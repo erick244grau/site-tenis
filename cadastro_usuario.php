@@ -16,6 +16,10 @@
         <?php
         include 'includes/conexao.php';
 
+        // Ativando exibição de erros (remover em produção)
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar'])) {
             // Captura e sanitiza os dados do formulário
             $nome = mysqli_real_escape_string($connect, trim($_POST['nome']));
@@ -39,9 +43,9 @@
                 mysqli_stmt_bind_param($stmt, 'sss', $nome, $email, $senhaHash);
                 
                 if (mysqli_stmt_execute($stmt)) {
-                    echo "<p style='color: #5cb85c;'>Cadastro realizado com sucesso!</p>";
+                    echo "<br><br><br><p style='color: #5cb85c;'>Cadastro realizado com sucesso!</p>";
                 } else {
-                    echo "<p style='color: #d9534f;'>Erro ao cadastrar: " . mysqli_error($connect) . "</p>";
+                    echo "<p style='color: #d9534f;'>Erro ao cadastrar: " . mysqli_stmt_error($stmt) . "</p>";
                 }
             } else {
                 echo "<p style='color: #d9534f;'>O email já está cadastrado.</p>";
@@ -49,19 +53,18 @@
         }
         ?>
 
-        <h2>Cadastro de Usuário</h2>
-        <form id="form-suporte" style="width: 50%; margin-left:25%" action=""st method="post">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-                
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required><br>
-                
-                <button type="submit" class="enviar-btn">Cadastrar</button>
-            </form>
+        <form id="form-suporte" style="width: 50%; margin-left:25%" action="" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required><br>
+            
+            <button type="submit" name="cadastrar" class="enviar-btn">Cadastrar</button>
+        </form>
     </section>
 
     <footer class="footer">
