@@ -24,7 +24,7 @@ session_start();
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color:  #1a1a1a;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
@@ -33,7 +33,7 @@ session_start();
         }
 
         .close {
-            color: #aaa;
+            color: black;
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -74,10 +74,10 @@ session_start();
                     <article class="produto">
                         <img src="img/badbunnyforumlow.avif" alt="Produto Adidas 1">
                         <div class="descricao">
-                            <h3>BB Forum Low</h3>
+                            <h3>Bad bunny Forum Low</h3>
                             <p class="marca">Marca: Adidas</p>
-                            <p class="preco">R$ 149,00</p>
-                            <a href="#" onclick="mostrarTamanhos('BB Forum Low', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 149.00)" class="btn">Ver Tamanhos</a>
+                            <p class="preco">R$ 800,00</p>
+                            <a href="#" onclick="mostrarTamanhos('Bad bunny Forum Low', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 800.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
 
@@ -101,21 +101,21 @@ session_start();
                 <h2 class="titulo-secao">Novos Tênis</h2>
                 <div class="produtos-lista">
                     <article class="produto">
-                        <img src="img/blackbunny.png" alt="Tênis Novo 1">
+                        <img src="img/lowSEblue.jpg" alt="Tênis Novo 1">
                         <div class="descricao">
-                            <h3>Tênis Novo Modelo 1</h3>
-                            <p class="marca">Marca: Exemplo</p>
+                            <h3>Dunk Low SEblue </h3>
+                            <p class="marca">Marca: Nike</p>
                             <p class="preco">R$ 199,00</p>
-                            <a href="#" onclick="mostrarTamanhos('Adi2000 All Black', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn">Ver Tamanhos</a>                        </div>
+                            <a href="#" onclick="mostrarTamanhos('Dunk Low SEblue', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 559.00)" class="btn">Ver Tamanhos</a>                        </div>
                     </article>
 
                     <article class="produto">
                         <img src="img/nikeT.webp" alt="Tênis Novo 2">
                         <div class="descricao">
-                            <h3>Tênis Novo Modelo 2</h3>
-                            <p class="marca">Marca: Exemplo</p>
+                            <h3>Dunk Travis Scott</h3>
+                            <p class="marca">Marca: Nike</p>
                             <p class="preco">R$ 249,00</p>
-                            <a href="#" onclick="mostrarTamanhos('Adi2000 All Black', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn">Ver Tamanhos</a>                        </div>
+                            <a href="#" onclick="mostrarTamanhos('Dunk Travis Scott', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn">Ver Tamanhos</a>                        </div>
                     </article>
                 </div>
             </div>
