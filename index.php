@@ -72,23 +72,23 @@ session_start();
                 <div class="produtos-lista">
                     <!-- Produto 1 Adidas -->
                     <article class="produto">
-                        <img src="img/badbunnyforumlow.avif" alt="Produto Adidas 1">
+                        <img src="img/brancoadidas.avif" alt="Produto Adidas 1">
                         <div class="descricao">
-                            <h3>Bad bunny Forum Low</h3>
+                            <h3>Nizza Platform</h3>
                             <p class="marca">Marca: Adidas</p>
                             <p class="preco">R$ 800,00</p>
-                            <a href="#" onclick="mostrarTamanhos('Bad bunny Forum Low', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 800.00)" class="btn">Ver Tamanhos</a>
+                            <a href="#" onclick="mostrarTamanhos('Nizza Platform', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 599.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
 
                     <!-- Produto 2 Adidas -->
                     <article class="produto">
-                        <img src="img/adi2000.avif" alt="Produto Adidas 2">
+                        <img src="img/campus00s.avif" alt="Produto Adidas 2">
                         <div class="descricao">
-                            <h3>Adi2000 All Black</h3>
+                            <h3>Campus00s</h3>
                             <p class="marca">Marca: Adidas</p>
-                            <p class="preco">R$ 299,00</p>
-                            <a href="#" onclick="mostrarTamanhos('Adi2000 All Black', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn">Ver Tamanhos</a>
+                            <p class="preco">R$ 499,00</p>
+                            <a href="#" onclick="mostrarTamanhos('Campus00s', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 499.00)" class="btn">Ver Tamanhos</a>
                         </div>
                     </article>
                 </div>
@@ -105,7 +105,7 @@ session_start();
                         <div class="descricao">
                             <h3>Dunk Low SEblue </h3>
                             <p class="marca">Marca: Nike</p>
-                            <p class="preco">R$ 199,00</p>
+                            <p class="preco">R$ 559,00</p>
                             <a href="#" onclick="mostrarTamanhos('Dunk Low SEblue', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 559.00)" class="btn">Ver Tamanhos</a>                        </div>
                     </article>
 
@@ -114,8 +114,8 @@ session_start();
                         <div class="descricao">
                             <h3>Dunk Travis Scott</h3>
                             <p class="marca">Marca: Nike</p>
-                            <p class="preco">R$ 249,00</p>
-                            <a href="#" onclick="mostrarTamanhos('Dunk Travis Scott', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 299.00)" class="btn">Ver Tamanhos</a>                        </div>
+                            <p class="preco">R$ 949,00</p>
+                            <a href="#" onclick="mostrarTamanhos('Dunk Travis Scott', ['35', '36', '37', '38', '39', '40', '41', '42', '43'], 949.00)" class="btn">Ver Tamanhos</a>                        </div>
                     </article>
                 </div>
             </div>
@@ -137,7 +137,7 @@ session_start();
                     </article>
 
                     <article class="produto">
-                        <img src="img/MichiganState.avif" alt="Produto Nike 2">
+                        <img src="img/MichiganState.webp" alt="Produto Nike 2">
                         <div class="descricao">
                             <h3>Michigan State</h3>
                             <p class="marca">Marca: Nike</p>
